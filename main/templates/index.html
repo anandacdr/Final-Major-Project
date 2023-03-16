@@ -1,0 +1,158 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion-Based Music Player</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="shortcut icon" href="#">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- NAVBAR START -->
+    <header class="text-white-600 body-font -my-8">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-white-900 mb-4 md:mb-0">
+            <img src="{% static 'imgs/heart.png' %}" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24" alt="Emotions">
+            <!-- <svg xmlns="" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg> -->
+            <!-- <span class="ml-3 text-xl">FEELO</span> -->
+          </a> 
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <a href="#" class="mr-5 hover:text-white">HOME</a>
+            <a href="#" class="mr-5 hover:text-white">FEATURES</a>
+            <a href="#" class="mr-5 hover:text-white">ABOUT</a>
+            <a href="teams.html" class="mr-5 hover:text-white">TEAMS</a>
+            <a href="#" class="mr-5 hover:text-white">CONTACT</a>
+          </nav>
+         
+        </div>
+      </header>
+
+    <!-- NAVBAR END -->
+    <div class="music-container">
+        <div class="current-mood">
+            <h1 id="status"></h1>
+        </div>
+
+        <div class="current-song">
+            <div class="current-song-2">
+                <h5 id="current_song"></h5>
+            </div>
+        </div>
+
+        <div class="music-content">
+            <div id="bg-image">
+
+                <div id="volume-container">
+                    <input type="range" class="slider" id="volumeslider" min="0" max="100" value="100" step="1">
+                </div>
+
+                <div id="volume-low-button">
+                    <img src="{% static 'imgs/volume-low.png' %}" id="volume-down">
+                </div>
+
+                <div id="volume-high-button">
+                    <img src="{% static 'imgs/volume-high.png' %}" id="volume-up">
+                </div>
+
+                <div id="music-image">
+                    <div id="circle-image">
+                        <img src="{% static 'imgs/square.jpg' %}" alt="">
+                    </div>
+                </div>
+
+                <div id="currentTime">
+                    <span id="curtimetext">00:00</span>
+                    <span id="durtimetext">00:00</span>
+                </div>
+
+                <div id="mute-button">
+                    <button id="mutebtn" style="background: transparent; border: none;"><img src="{% static 'imgs/speaker.png' %}" alt=""></button>
+                </div>
+
+                <div id="seek-container">
+                    <input type="range" class="seekslider" id="seekslider" min="0" max="100" value="0" step="1">
+                </div>
+
+                <div id="buttons">
+                    <div id="repeat-button">
+                        <button class="rep" id="repeat" style="background: transparent; border: none;"><img src="{% static 'imgs/loop.png' %}" alt=""></button>
+                    </div>
+                    <div id="prev-button">
+                        <button class="prev" id="prevbtn"><img src="{% static 'imgs/prev_song.png' %}" alt=""></button>
+                    </div>
+                    <div id="play-button">
+                        <button class="play" id="playpausebtn"><img src="{% static 'imgs/play.png' %}" alt=""></button>
+                    </div>
+                    <div id="next-button">
+                        <button class="next" id="nextbtn"><img src="{% static 'imgs/next_song.png' %}" alt=""></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mood-button">
+            <button id="test" style="margin-top: 15px; border-radius: 5px; height: 30px; width: 150px; color: white; background: #333333; border: none;">Detect New Mood</button>
+        </div>
+    </div>
+
+    <!-- Footer Code Start -->
+    <footer class="text-white-600 body-font">
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+          <a class="flex title-font font-medium items-center md:justify-start justify-center text-white-900">
+            <img src="{% static 'imgs/heart.png' %}" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24" alt="Emotions">
+            <span class="ml-3 text-xl">FEELO</span>
+          </a>
+          <p class="text-sm text-white-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-white-200 sm:py-2 sm:mt-0 mt-4">© 2023 Ananda Chaudhary —
+            <a href="https://twitter.com/anandacdr" class="text-white-600 ml-1" rel="noopener noreferrer" target="_blank">@anandacdr</a>
+          </p>
+          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <a href="https://github.com/anandacdr" target="_blank" class="text-white-500">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <!-- <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path> -->
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-4.466 19.59c-.405.078-.534-.171-.534-.384v-2.195c0-.747-.262-1.233-.55-1.481 1.782-.198 3.654-.875 3.654-3.947 0-.874-.312-1.588-.823-2.147.082-.202.356-1.016-.079-2.117 0 0-.671-.215-2.198.82-.64-.18-1.324-.267-2.004-.271-.68.003-1.364.091-2.003.269-1.528-1.035-2.2-.82-2.2-.82-.434 1.102-.16 1.915-.077 2.118-.512.56-.824 1.273-.824 2.147 0 3.064 1.867 3.751 3.645 3.954-.229.2-.436.552-.508 1.07-.457.204-1.614.557-2.328-.666 0 0-.423-.768-1.227-.825 0 0-.78-.01-.055.487 0 0 .525.246.889 1.17 0 0 .463 1.428 2.688.944v1.489c0 .211-.129.459-.528.385-3.18-1.057-5.472-4.056-5.472-7.59 0-4.419 3.582-8 8-8s8 3.581 8 8c0 3.533-2.289 6.531-5.466 7.59z"></path>
+                
+            </a>
+            <a href="https://twitter.com/anandacdr" target="_blank" class="ml-3 text-white-500">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/ananda.cdr/?igshid=MWM2YjBjM2Q%3D&fbclid=IwAR3H4hzhde91gLX4ahJJ4YbxXFEIQHSYyKI4lwdqFP83K2sXmbjVU1d8Nf0" target="_blank" class="ml-3 text-white-500">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"> Insta</path>
+                <!-- <path url="https://www.github.com/"></path> -->
+              </svg>
+
+            </a>
+            <a href="https://www.linkedin.com/in/ananda-chaudhary-003194204/" target="_blank" class="ml-3 text-white-500">
+              <svg  fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+              </svg>
+            </a>
+          </span>
+        </div>
+      </footer>
+
+      <!-- Footer Code End  -->
+
+    <!--Problem is the expression variable isn't being passed to here properly-->
+    <div id='imageCapture' style='display: none'></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.js'></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
