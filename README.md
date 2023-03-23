@@ -42,6 +42,6 @@ Final Accuracy = 58.33%, Validation Accuracy = 54.99%
 ## Authors
 
 * `Ananda` https://github.com/anandacdr
-
+* `Mandevi`
 ## License
 This project is licensed under the MIT License - see the <a href = "https://github.com/anandacdr/Final-Major-Project/blob/master/LICENSE" target="_blank">LICENSE</a> file for details.
