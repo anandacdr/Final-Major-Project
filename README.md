@@ -39,6 +39,9 @@ The dataset was initially retrieved from Kaggle from a <a href="https://www.kagg
 
 Final Accuracy = 58.33%, Validation Accuracy = 54.99%
 
+### Overview of Project
+![Project Overview](https://github.com/anandacdr/Final-Major-Project/blob/master/FELLO.png)
+
 ## Authors
 
 * `Ananda` https://github.com/anandacdr
